@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile - MyDjango App{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center py-4">
+    <div class="col-lg-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">User Profile</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <h6 class="text-muted">Full Name</h6>
+                        <p class="mb-0">{{ user.first_name }} {{ user.last_name }}</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h6 class="text-muted">Username</h6>
+                        <p class="mb-0">{{ user.username }}</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h6 class="text-muted">Email</h6>
+                        <p class="mb-0">{{ user.email }}</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h6 class="text-muted">Member Since</h6>
+                        <p class="mb-0">{{ user.date_joined|date:"d M Y, h:i A" }}</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h6 class="text-muted">Last Login</h6>
+                        <p class="mb-0">{{ user.last_login|date:"d M Y, h:i A" }}</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h6 class="text-muted">Active</h6>
+                        <p class="mb-0">{{ user.is_active|yesno:"Yes,No" }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

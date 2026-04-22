@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Logout - MyDjango App{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center py-4">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm">
+            <div class="card-header bg-warning text-dark text-center">
+                <h3 class="mb-0">Confirm Logout</h3>
+            </div>
+            <div class="card-body p-4 text-center">
+                <p>Are you sure you want to log out?</p>
+                <form method="post" class="d-grid gap-2">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                    <a href="{% url 'home' %}" class="btn btn-outline-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
